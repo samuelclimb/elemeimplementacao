@@ -14,7 +14,7 @@
 <!-- Main content -->
 
 <div class="container-fluid col-12 d-flex align-items-center justify-content-center mt-5">
-    <img src="./logo.PNG" alt="Logo da empresa" style="width: 350px;">
+    <img src="./logo.PNG" alt="Logo da empresa" style="width: 250px;">
 </div>
 <div data-aos="fade-up-left" class="container-fluid">
     <div class="row">
@@ -40,7 +40,7 @@
         </div>
         <div data-aos="fade-up"> 
         <div class="col-12 d-flex align-items-center justify-content-center mt-5">
-            <iframe width="1020" height="800" src="https://lookerstudio.google.com/embed/reporting/1ed1e624-7ceb-4bda-acf1-4ed13e8135b3/page/1M" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe id="dashboard-iframe" width="1020" height="800" src="https://lookerstudio.google.com/embed/reporting/1ed1e624-7ceb-4bda-acf1-4ed13e8135b3/page/1M" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         </div>
     </div>
@@ -49,6 +49,35 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-      </script>
+        
+        // Adicione o código JavaScript para alternar o modo escuro aqui
+        const darkModeToggle = document.createElement('button');
+        darkModeToggle.textContent = 'Dark Mode';
+        darkModeToggle.classList.add('btn', 'btn-dark', 'position-absolute', 'top-0', 'end-0', 'm-3');
+
+        let isDarkMode = false;
+
+        darkModeToggle.addEventListener('click', () => {
+          isDarkMode = !isDarkMode;
+          toggleDarkMode();
+        });
+
+        function toggleDarkMode() {
+          if (isDarkMode) {
+            document.body.style.backgroundColor = '#1a1a1a';
+            document.body.style.color = '#ffffff';
+            darkModeToggle.style.backgroundColor = '#ffffff';
+            darkModeToggle.style.color = '#000000';
+          } else {
+            document.body.style.backgroundColor = ''; // Use a cor de fundo padrão aqui
+            document.body.style.color = ''; // Use a cor de texto padrão aqui
+            darkModeToggle.style.backgroundColor = '';
+            darkModeToggle.style.color = '';
+          }
+        }
+
+        document.body.appendChild(darkModeToggle);
+    </script>
   </body>
 </html>
+
