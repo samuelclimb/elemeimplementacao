@@ -47,37 +47,41 @@
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-        
-        // Adicione o código JavaScript para alternar o modo escuro aqui
-        const darkModeToggle = document.createElement('button');
-        darkModeToggle.textContent = 'Dark Mode';
-        darkModeToggle.classList.add('btn', 'btn-dark', 'position-absolute', 'top-0', 'end-0', 'm-3');
-
-        let isDarkMode = false;
-
-        darkModeToggle.addEventListener('click', () => {
-          isDarkMode = !isDarkMode;
-          toggleDarkMode();
-        });
-
-        function toggleDarkMode() {
-          if (isDarkMode) {
-            document.body.style.backgroundColor = '#1a1a1a';
-            document.body.style.color = '#ffffff';
-            darkModeToggle.style.backgroundColor = '#ffffff';
-            darkModeToggle.style.color = '#000000';
-          } else {
-            document.body.style.backgroundColor = '#ffffff'; // Use a cor de fundo padrão aqui
-            document.body.style.color = '#ffffff'; // Use a cor de texto padrão aqui
-            darkModeToggle.style.backgroundColor = '#ffffff';
-            darkModeToggle.style.color = '#ffffff';
-          }
-        }
-
-        document.body.appendChild(darkModeToggle);
-    </script>
+   <script>
+  AOS.init();
+  
+  // Adicione o código JavaScript para alternar entre os modos claro e escuro
+  const modeToggle = document.createElement('button');
+  modeToggle.textContent = 'Toggle Mode';
+  modeToggle.classList.add('btn', 'btn-primary', 'position-absolute', 'top-0', 'end-0', 'm-3');
+  
+  let isDarkMode = false;
+  
+  modeToggle.addEventListener('click', () => {
+    isDarkMode = !isDarkMode;
+    toggleMode();
+  });
+  
+  function toggleMode() {
+    if (isDarkMode) {
+      // Modo escuro
+      document.body.style.backgroundColor = '#1a1a1a';
+      document.body.style.color = '#ffffff';
+      modeToggle.textContent = 'Light Mode';
+      modeToggle.classList.remove('btn-primary');
+      modeToggle.classList.add('btn-dark');
+    } else {
+      // Modo claro
+      document.body.style.backgroundColor = ''; // Use a cor de fundo padrão aqui
+      document.body.style.color = ''; // Use a cor de texto padrão aqui
+      modeToggle.textContent = 'Dark Mode';
+      modeToggle.classList.remove('btn-dark');
+      modeToggle.classList.add('btn-primary');
+    }
+  }
+  
+  document.body.appendChild(modeToggle);
+</script>
   </body>
 </html>
 
